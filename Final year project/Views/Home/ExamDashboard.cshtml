@@ -1,0 +1,81 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamDashboard</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("https://example.com/your-image.jpg"); /* Change the URL to your image */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #333;
+            padding-top: 50px; /* Added padding-top to create space for the "student" image */
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #student-img {
+            display: block;
+            margin: 0 auto 20px; /* Center the image and add some bottom margin */
+            width: 100px;
+            height: auto;
+        }
+
+        #room {
+            border-color: #007bff;
+        }
+
+        #submit-btn {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+            #submit-btn:hover {
+                background-color: #0056b3;
+                border-color: #0056b3;
+            }
+
+        #room-label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    @if (@ViewBag.error != null)
+    {
+        <div class="alert alert-danger">
+            <strong>Error ! </strong> @ViewBag.error;
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+<div class="container">
+    <h2 class="text-center mb-4">Welcome Student!</h2>
+    <p id="room-label" class="text-center">Please Enter Your Room Number:</p>
+    <div class="input-group mb-3">
+        <input type="text" id="room" name="room" placeholder="Room Number" class="form-control">
+        <br />
+        <br />
+        <input type="submit" value="submit" class="btn btn-danger btn-block" />
+    </div>
+    
+</div>
+    }
+   
+</body>
+</html>
